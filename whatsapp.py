@@ -1,5 +1,5 @@
 import re
-from collections import Counter, defaultdict
+from collections import Counter
 import os
 import datetime
 
@@ -106,7 +106,7 @@ class chatStat():
 
 for file in os.listdir('./'):
     if file.endswith('txt'):
-        confirm_file = input("Analyze {}? (Y/N)".format(file))
+        confirm_file = input("\nAnalyze {}? (Y/N)".format(file))
         if confirm_file.lower() == "y" or confirm_file.lower() == "yes":
             currentChat = chatStat(file)
             data = readfile(file)
