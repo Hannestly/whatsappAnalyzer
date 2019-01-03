@@ -1,9 +1,27 @@
 # Chat Analyzer
+Python Library to parse chat data and analyze
 
 ## Quick start
-1. have your chat exported as textfile (.txt) and save it in the same directory as the `whatsapp.py` file
-2. name the chat file as 'messages.txt'
-2. run `whatsapp.py`
+1. Have your whatsapp chat saved as .txt file without media 
+2. Clone or download the repository
+2. Import all (*) from 'whatsapp.py'
+```python
+from whatsapp import *
+```
+3. Instantiate a 'ChatBank' object using the chat text file
+```python
+ChatObject = ChatBank("Chatfile.txt")     # insert path to chat file
+```
+
+## Simple demo
+```python
+from whatsapp import *
+
+chatObject = ChatBank(chat_file_path="myChat.txt", avoid_file="avoid_list.txt")
+
+print(chatObject.users)   # prints Chat users in Counter
+print(ChatObject.userwords["John Park"].most_common(10))  # prints top 10 most commonly used words by user "John Park"
+```
 
 ## Current Features
 - First day of chat, chat's age 
