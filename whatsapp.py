@@ -59,11 +59,11 @@ class messageUnit():
 
 
 class ChatBank():
-    def __init__(self, chatname, avoid_file=None):
-        self.chatname = chatname    # name of the chat
+    def __init__(self, chat_file, avoid_file=None):
+        self.chat_file = chat_file    # name of the chat
 
         self.message_index = 0
-        self.chatdata = self.read_chatfile(chatname)    # chat data in string
+        self.chatdata = self.read_chatfile(chat_file)    # chat data in string
         self.avoid_list = []        # list of words to be avoided
         if avoid_file is not None:
             self.avoid_list = self.parse_avoid_file(avoid_file)
@@ -74,8 +74,8 @@ class ChatBank():
         self.userwords = {}
         self.iterate_messages(self.chatdata)
 
-    def read_chatfile(self, chatname):
-        with open(chatname, encoding="utf8") as textfile:
+    def read_chatfile(self, chat_file):
+        with open(chat_file, encoding="utf8") as textfile:
             data = textfile.read()
             return data
 
